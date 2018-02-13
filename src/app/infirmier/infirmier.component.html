@@ -1,0 +1,21 @@
+<mat-card>
+  <img aligne="center" src ='{{getPhotoURL()}}' style="width: 5%"  /> <br/>
+  <b>Id: </b>{{getId()}}<br/>
+  <b>Nom:</b>{{getNom()}}<br/>
+  <b>Prenom:</b>{{getPrenom()}}<br/>
+
+  <b>Adresse:</b>{{getAdresse()}}<br/>
+
+  <b>Patient affectés:</b><br/>
+  <table>
+    <tr *ngFor= "let c of getPatients() ">
+      <th>{{ getPresenter(c) }}    </th>
+      <th><button mat-raised-button color="primary" (click)="service_desaffecter(c)" >désaffecter</button></th>
+    </tr>
+  </table>
+</mat-card>
+
+
+
+
+

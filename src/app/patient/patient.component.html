@@ -1,0 +1,27 @@
+<!--<script>-->
+  <!--function openDialogs() {-->
+    <!--var person = prompt("Please enter your name", "Harry Potter");-->
+  <!--}-->
+<!--</script>-->
+
+
+
+<mat-card>
+  <b>Nom:</b>{{getNom()}}<br/>
+  <b>Prenom:</b>{{getPrenom()}}<br/>
+  <b>Sexe:</b>{{getSexe() === enumM ? "M" : "F"}}<br/>
+  <b>Naissance:</b>{{getNaissance()}}<br />
+  <b>Num Securité sociale:</b>{{getNum()}}<br/>
+  <b>Adresse:</b>{{getAdresse()}}<br/>
+
+
+  <mat-form-field>
+    <mat-select placeholder="Choisir infirmier" [(ngModel)]="selectedValue" >
+      <mat-option *ngFor="let inf of infirmiers" [value]="inf.id">
+        {{ inf.nom }} : {{inf.id}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click) ="service_affecter(selectedValue)">Affecter à {{selectedValue}}  </button>
+
+</mat-card>
